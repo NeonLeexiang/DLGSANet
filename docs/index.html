@@ -37,6 +37,17 @@ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
   <script src="./bistnet_files/bulma-carousel.min.js.下载"></script>
   <script src="./bistnet_files/bulma-slider.min.js.下载"></script>
   <script src="./bistnet_files/index.js.下载"></script>
+
+  <style type="text/css">
+.tg  {border-collapse:collapse;border-spacing:0;}
+.tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
+  font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-c3ow{border-color:inherit;text-align:center;vertical-align:top}
+.tg .tg-0pky{border-color:inherit;text-align:left;vertical-align:top}
+</style>
+
 </head><div id="cyeBlackMaskLayer" style="background-color: rgb(255, 255, 255); position: fixed; width: 1980px; height: 1080px; z-index: -2147483648;"></div>
 <body style="">
 
@@ -208,6 +219,20 @@ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+        <h2 class="title is-2 "> Params vs FLOPs vs PSNR </h2>
+        <div class="content has-text-justified">
+<!--          <p>-->
+<!--            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels, followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.-->
+<!--          </p>-->
+          <img src="./media/complexity_scatter1.pdf">
+          <p>
+            Image super-resolution comparisons (x4) in terms of accuracy, network parameters, and floating point operations (FLOPs) from the Urban100 dataset. The area of each circle denotes the number of network parameters. Our model (DLGSANet) achieves comparable performance while having fewer network parameters (<5M) and lower FLOPs.
+          </p>
+
+
+        </div>
+      </div>
+      <div class="column is-four-fifths">
         <h2 class="title is-2 "> Framework </h2>
         <div class="content has-text-justified">
           <p>
@@ -216,6 +241,20 @@ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
           <img src="./media/network_structure_single_v1.pdf">
           <p>
             Network architecture of the proposed DLGSANet. It mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module.
+          </p>
+
+
+        </div>
+      </div>
+      <div class="column is-four-fifths">
+        <h2 class="title is-2 "> SparseGSA </h2>
+        <div class="content has-text-justified">
+          <p>
+            We note that using the softmax function will keep all the self-attention values for the feature aggregation. However, if the tokens from the query and key are different, using the self-attention values of these tokens may affect the feature aggregation. In contrast, using the ReLU removes some self-attention values. For example, only the ones that correspond to the main structures and details are preserved, which thus leads to better results, as shown in Figure.
+          </p>
+          <img src="./media/softmaxrelu_v1.pdf">
+          <p>
+            Using the SparseGSA is able to remove useless self-attention values and thus leads to better features for high-resolution image reconstruction.
           </p>
 
 
@@ -230,12 +269,373 @@ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
+        <h2 class="title is-2 "> Quantitative Results </h2>
+        <div class="content has-text-justified">
+<table class="tg">
+<thead>
+  <tr>
+    <th class="tg-0pky" colspan="8">Super Resolution x2</th>
+  </tr>
+</thead>
+<tbody>
+  <tr>
+    <td class="tg-0pky">Model</td>
+    <td class="tg-c3ow">Params(\M)</td>
+    <td class="tg-c3ow">FLOPs(\G)</td>
+    <td class="tg-c3ow">Set5(PSNR/SSIM)</td>
+    <td class="tg-c3ow">Set14<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">B100<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">Urban100<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">Manga109<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">EDSR</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">40.73</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">9387</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.11/0.9602</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.92/0.9195</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.32/0.9013</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.93/0.9351</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.10/0.9773</span> </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">RDN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">22.12</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">5098</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.24/0.9614</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.01/0.9212</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.34/0.9017</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.89/0.9353</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.18/0.9780</span> </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">RCAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">15.44</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">3530</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.27/0.9614</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.12/0.9216</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.41/0.9027</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.34 0.9384</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.44/0.9786</span> </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">SAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">15.86</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">3050</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.31/0.9620</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.07/0.9213</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.42/0.9028</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.10/0.9370</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.32/0.9792</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">HAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">63.6</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">14551</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.27/0.9614</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.16/0.9217</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.41/0.9027</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.35/0.9385</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.46/0.9785</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">NLSA</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">41.79</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">9632</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.34/0.9618</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.08/0.9231</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.43/0.9027</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.42/0.9394</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.59/0.9789</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">SwinIR</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">11.75</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">2301</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.35/0.9620</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.14/0.9227</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.44/0.9030</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.40/0.9393</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.60/0.9792</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">ELAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">8.25</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">1965</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.36/0.9620</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.20/0.9228</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.45/0.9030</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.44/0.9391</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.62/0.9793</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">DLGSANet (Ours)</span>   </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">4.73</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">1097</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">38.34/0.9617</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.25/0.9231</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.38/0.9025</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">33.41/0.9393</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">39.57/0.9789</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" colspan="8">Super Resolution x3</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Model</td>
+    <td class="tg-c3ow">Params(\M)</td>
+    <td class="tg-c3ow">FLOPs(\G)</td>
+    <td class="tg-c3ow">Set5(PSNR/SSIM)</td>
+    <td class="tg-c3ow">Set14<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">B100<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">Urban100<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">Manga109<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">EDSR</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">43.68</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">4470</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.65/0.9280</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.52/0.8462</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.25/0.8093</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.80/0.8653</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.17/0.9476</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">RDN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">22.3</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">2282</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.71/0.9296</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.57/0.8468</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.26/0.8093</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.80/0.8653</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.13/0.9484</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">RCAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">15.62</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">1586</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.74/0.9299</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.65/0.8482</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.32/0.8111</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.09/0.8702</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.44/0.9499</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">SAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">15.89</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">1620</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.75/0.9300</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.59/0.8476</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.33/0.8112</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.93/0.8671</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.30/0.9494</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">HAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">64.34</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">6534</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.75/0.9299</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.67/0.8483</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.32/0.8110</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.10/0.8705</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.48/0.9500</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">NLSA</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">44.74</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">4579</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.85/0.9306</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.70/0.8485</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.34/0.8117</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.25/0.8726</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.57 0.9508</span> </td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">SwinIR</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">11.93</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">1026</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.89/0.9312</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.77/0.8503</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.37/0.8124</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.29/0.8744</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.74/0.9518</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">ELAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">8.27</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">874</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.90/0.9313</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.80/0.8504</span> </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.38/0.8124</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.32/0.8745</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.73/0.9517</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">DLGSANet (Ours)</span>        </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">4.74</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">486</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.95/0.9310</span>     </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">30.77/0.8501</span>     </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.38/0.8121</span>     </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">29.43/0.8761</span>    </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">34.76/0.9517</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky" colspan="8">Super Resolution x4</td>
+  </tr>
+  <tr>
+    <td class="tg-0pky">Model</td>
+    <td class="tg-c3ow">Params(\M)</td>
+    <td class="tg-c3ow">FLOPs(\G)</td>
+    <td class="tg-c3ow">Set5(PSNR/SSIM)</td>
+    <td class="tg-c3ow">Set14<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">B100<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">Urban100<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+    <td class="tg-c3ow">Manga109<span style="font-weight:400;font-style:normal;text-decoration:none">(PSNR/SSIM)</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">EDSR</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">43.09</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">2895</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.46/0.8968</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.80/0.7876</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.71/0.7420</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">26.64/0.8033</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.02/0.9148</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">RDN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">22.27</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">1310</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.47/0.8990</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.81/0.7871</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.72/0.7419</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">26.61/0.8028</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.00/0.9151</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">RCAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">15.59</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">918</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.63/0.9002</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.87/0.7889</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.77/0.7436</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">26.82/0.8087</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.22/0.9173</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">SAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">15.86</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">937</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.64/0.9003</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.92/0.7888</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.78/0.7436</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">26.79/0.8068</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.18/0.9169</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">HAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">64.19</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">3776</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.64/0.9002</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.90/0.7890</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.80/0.7442</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">26.85/0.8094</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.42/0.9177</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">NLSA</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">44.15</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">2956</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.59/0.9000</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.87/0.7891</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.78/0.7444</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">26.96/0.8109</span>  </td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.27/0.9184</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">SwinIR</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">11.9</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">584</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.72/0.9021</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.94/0.7914</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.83/0.7459</span></td>
+    <td class="tg-c3ow"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.07/0.8164</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.67/0.9226</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"> <span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">ELAN</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">8.31</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">494</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.75/0.9022</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.96/0.7914</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.83/0.7459</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.13/0.8167</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.68/0.9226</span></td>
+  </tr>
+  <tr>
+    <td class="tg-0pky"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">DLGSANet (Ours)</span>   </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">4.76</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">274</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">32.80/0.9021</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">28.95/0.7907</span>  </td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.85/0.7464</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">27.17/0.8175</span></td>
+    <td class="tg-c3ow"><span style="font-weight:400;font-style:normal;text-decoration:none;color:#000">31.68/0.9219</span></td>
+  </tr>
+</tbody>
+</table>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+
+
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
         <h2 class="title is-2 "> Visual Results </h2>
         <div class="content has-text-justified">
 <!--          <p>-->
 <!--            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels,  followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.-->
 <!--          </p>-->
           <a href="https://imgsli.com/MTQ0OTkz"><img src="./media/img044_imgsli.png"></a>
+
+
+<!--          <p>-->
+<!--            Network architecture of the proposed DLGSANet. It mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module.-->
+<!--          </p>-->
+
+
+        </div>
+        <div class="content has-text-justified">
+<!--          <p>-->
+<!--            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels,  followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.-->
+<!--          </p>-->
+          <a href="https://imgsli.com/MTQ0OTk5"><img src="./media/img073_imgsli.png"></a>
+
+
+<!--          <p>-->
+<!--            Network architecture of the proposed DLGSANet. It mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module.-->
+<!--          </p>-->
+
+
+        </div>
+        <div class="content has-text-justified">
+<!--          <p>-->
+<!--            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels,  followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.-->
+<!--          </p>-->
+          <a href="https://imgsli.com/MTQ1MDAy"><img src="./media/img095_imgsli.png"></a>
 
 
 <!--          <p>-->
