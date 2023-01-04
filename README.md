@@ -1,28 +1,26 @@
-# BiSTNet: Semantic Image Prior Guided Bidirectional Temporal Feature Fusion for Deep Exemplar-based Video Colorization
+# DLGSANet: Lightweight Dynamic Local and Global Self-Attention Networks for Image Super-Resolution
 
-### [Project Page](https://yyang181.github.io/BiSTNet/) | [Paper (ArXiv)]() | [Supplemental Material]()
+### [Project Page](https://neonleexiang.github.io/DLGSANet/) | [Paper (ArXiv)]() | [Supplemental Material]()
 
-**This repository is the official pytorch implementation of our paper, *BiSTNet: Semantic Image Prior Guided Bidirectional Temporal Feature Fusion for Deep Exemplar-based Video Colorization*.**
+**This repository is the official pytorch implementation of our paper, *DLGSANet: Lightweight Dynamic Local and Global Self-Attention Networks for Image Super-Resolution*.**
 
-[Yixin Yang](https://imag-njust.net/)<sup>1</sup>,
-[Zhongzheng Peng](https://imag-njust.net/)<sup>1</sup>,
-[Xiaoyu Du](https://imag-njust.net/xiaoyu-du/)<sup>1</sup>,
-[Zhulin Tao](https://ices.cuc.edu.cn/2022/1028/c5332a200498/page.htm)<sup>2</sup>,
+[Xiang Li](https://imag-njust.net/)<sup>1</sup>,
+[Jinshan Pan](https://jspan.github.io/)<sup>1</sup>,
 [Jinhui Tang](https://imag-njust.net/jinhui-tang/)<sup>1</sup>,
-[Jinshan Pan](https://jspan.github.io/)<sup>1</sup> <br>
+[Jiangxin Dong](https://imag-njust.net/jiangxin-dong/)<sup>1</sup> <br>
 
-<sup>1</sup>Nanjing University of Science and Technology, <sup>2</sup>Communication University of China
+<sup>1</sup>Nanjing University of Science and Technology
 
 ## Framework
-<img src='docs/media/pipeline.jpg'/>
+<img src='docs/media/network_structure_single_v1.pdf'/>
 
-## Input Videos (left column) and Colorized Videos (right column)
+## Visual Results
 
-![](./docs/media/fanghua292.gif)
+![](./docs/media/img044_imgsli.png)
 
-![](./docs/media/fanghua301.gif)
+![](./docs/media/img073_imgsli.png)
 
-![](./docs/media/fanghua302.gif)
+![](./docs/media/img095_imgsli.png)
 
 ## To Do
 
@@ -34,5 +32,5 @@ Release pre-trained models
 
 ## Contact
 
-This repo is currently maintained by Yixin Yang ([@yyang181](https://github.com/yyang181)) and is for academic research use only. 
+This repo is currently maintained by Xiang Li ([@neonleexiang](https://github.com/NeonLeexiang)) and is for academic research use only. 
 
