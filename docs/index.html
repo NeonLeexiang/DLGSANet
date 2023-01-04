@@ -232,6 +232,56 @@ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
 
         </div>
       </div>
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-2 "> Framework </h2>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels, followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.-->
+<!--          </p>-->
+<!--          <img src="./media/network_structure_single_v1.pdf">-->
+<!--          <p>-->
+<!--            Network architecture of the proposed DLGSANet. It mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module.-->
+<!--          </p>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-2 "> SparseGSA </h2>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We note that using the softmax function will keep all the self-attention values for the feature aggregation. However, if the tokens from the query and key are different, using the self-attention values of these tokens may affect the feature aggregation. In contrast, using the ReLU removes some self-attention values. For example, only the ones that correspond to the main structures and details are preserved, which thus leads to better results, as shown in Figure.-->
+<!--          </p>-->
+<!--          <img src="./media/softmaxrelu_v1.pdf">-->
+<!--          <p>-->
+<!--            Using the SparseGSA is able to remove useless self-attention values and thus leads to better features for high-resolution image reconstruction.-->
+<!--          </p>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-2 "> Params vs FLOPs vs PSNR </h2>-->
+<!--        <div class="content has-text-justified">-->
+<!--&lt;!&ndash;          <p>&ndash;&gt;-->
+<!--&lt;!&ndash;            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels, followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.&ndash;&gt;-->
+<!--&lt;!&ndash;          </p>&ndash;&gt;-->
+<!--          <img src="./media/complexity_scatter1.pdf">-->
+<!--          <p>-->
+<!--            Image super-resolution comparisons (x4) in terms of accuracy, network parameters, and floating point operations (FLOPs) from the Urban100 dataset. The area of each circle denotes the number of network parameters. Our model (DLGSANet) achieves comparable performance while having fewer network parameters (<5M) and lower FLOPs.-->
+<!--          </p>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
       <div class="column is-four-fifths">
         <h2 class="title is-2 "> Framework </h2>
         <div class="content has-text-justified">
@@ -246,6 +296,56 @@ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
 
         </div>
       </div>
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-2 "> SparseGSA </h2>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            We note that using the softmax function will keep all the self-attention values for the feature aggregation. However, if the tokens from the query and key are different, using the self-attention values of these tokens may affect the feature aggregation. In contrast, using the ReLU removes some self-attention values. For example, only the ones that correspond to the main structures and details are preserved, which thus leads to better results, as shown in Figure.-->
+<!--          </p>-->
+<!--          <img src="./media/softmaxrelu_v1.pdf">-->
+<!--          <p>-->
+<!--            Using the SparseGSA is able to remove useless self-attention values and thus leads to better features for high-resolution image reconstruction.-->
+<!--          </p>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <div class="columns is-centered has-text-centered">
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-2 "> Params vs FLOPs vs PSNR </h2>-->
+<!--        <div class="content has-text-justified">-->
+<!--&lt;!&ndash;          <p>&ndash;&gt;-->
+<!--&lt;!&ndash;            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels, followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.&ndash;&gt;-->
+<!--&lt;!&ndash;          </p>&ndash;&gt;-->
+<!--          <img src="./media/complexity_scatter1.pdf">-->
+<!--          <p>-->
+<!--            Image super-resolution comparisons (x4) in terms of accuracy, network parameters, and floating point operations (FLOPs) from the Urban100 dataset. The area of each circle denotes the number of network parameters. Our model (DLGSANet) achieves comparable performance while having fewer network parameters (<5M) and lower FLOPs.-->
+<!--          </p>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
+<!--      <div class="column is-four-fifths">-->
+<!--        <h2 class="title is-2 "> Framework </h2>-->
+<!--        <div class="content has-text-justified">-->
+<!--          <p>-->
+<!--            The proposed lightweight dynamic local and global self-attention network (DLGSANet) mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module. The shallow feature extraction uses a convolutional layer with a filter size of 3x3 pixels to extract features from the input low-resolution image. Each RHDTG takes the hybrid dynamic-Transformer block (HDTB) as the basic module. Moreover, the HDTB contains the multi-head dynamic local self-attention (MHDLSA) and the sparse global self-attention (SparseGSA). The high-resolution image reconstruction module contains a convolutional layer with a filter size of 3x3 pixels, followed by a PixelShuffle operation for upsampling. Figure shows the overview of the proposed DLGSANet for SISR.-->
+<!--          </p>-->
+<!--          <img src="./media/network_structure_single_v1.pdf">-->
+<!--          <p>-->
+<!--            Network architecture of the proposed DLGSANet. It mainly contains a shallow feature extraction module, six residual hybrid dynamic-Transformer groups (RHDTGs) for both local and global feature extraction, and a high-resolution image reconstruction module.-->
+<!--          </p>-->
+
+
+<!--        </div>-->
+<!--      </div>-->
       <div class="column is-four-fifths">
         <h2 class="title is-2 "> SparseGSA </h2>
         <div class="content has-text-justified">
@@ -264,12 +364,11 @@ html.cye-enabled.cye-nm:not(*:-webkit-full-screen) body,
   </div>
 </section>
 
-
 <section class="section">
   <div class="container is-max-desktop">
     <div class="columns is-centered has-text-centered">
       <div class="column is-four-fifths">
-        <h2 class="title is-2 "> Quantitative Results </h2>
+        <h2 class="title is-2 "> Quantitative Evaluations </h2>
         <div class="content has-text-justified">
 <table class="tg">
 <thead>
