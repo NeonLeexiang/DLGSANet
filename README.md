@@ -1,6 +1,6 @@
 # DLGSANet: Lightweight Dynamic Local and Global Self-Attention Networks for Image Super-Resolution
 
-### [Project Page](https://neonleexiang.github.io/DLGSANet/) | [Paper (ArXiv)]() | [Supplemental Material]()
+### [Project Page](https://neonleexiang.github.io/DLGSANet/) | [Paper (ArXiv)](https://arxiv.org/abs/2301.02031) | [Supplemental Material]()
 
 **This repository is the official pytorch implementation of our paper, *DLGSANet: Lightweight Dynamic Local and Global Self-Attention Networks for Image Super-Resolution*.**
 
@@ -12,7 +12,7 @@
 <sup>1</sup>Nanjing University of Science and Technology
 
 ## Framework
-<img src='docs/media/network_structure_single_v1.pdf'/>
+<img src='./docs/media/network_structure_single_v1.pdf'/>
 
 ## Visual Results
 
