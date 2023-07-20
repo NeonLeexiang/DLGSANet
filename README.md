@@ -12,7 +12,8 @@
 <sup>1</sup>Nanjing University of Science and Technology
 
 ## Framework
-<img src='./docs/media/network_structure_single_v1.pdf'/>
+# <img src='./docs/media/network_structure_single_v1.pdf'/>
+![](./docs/media/network_structure_single_v1.pdf)
 
 ## Visual Results
 
