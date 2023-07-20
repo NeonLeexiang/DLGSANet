@@ -13,7 +13,7 @@
 
 ## Framework
 # <img src='./docs/media/network_structure_single_v1.pdf'/>
-![](./docs/media/network_structure_single_v1.pdf)
+![](./docs/media/dlgsanet_png.png)
 
 ## Visual Results
 
