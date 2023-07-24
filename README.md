@@ -60,10 +60,10 @@ sh ./demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Large_90C6G4B_DL
 sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx2_scratch_img_size_48_lr5e_4.sh
 
 # For X3
-sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_ClassicSR_Large_90C6G4B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.sh
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.sh
 
 # For X4
-sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_ClassicSR_Large_90C6G4B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.sh
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.sh
 
 ```
 
