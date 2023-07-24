@@ -1,0 +1,98 @@
+# general settings
+name: test_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4
+# BASE Setting: 90C-6G-4B-2FFNExpansion
+model_type: SRModel
+scale: 4
+num_gpu: auto
+manual_seed: 0
+
+# dataset and data loader settings
+datasets:
+  val_1:
+    name: Set5
+    type: PairedImageDataset
+    dataroot_gt: ../data/benchmark/Set5/HR
+    dataroot_lq: ../data/benchmark/Set5/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  val_2:
+    name: Set14
+    type: PairedImageDataset
+    dataroot_gt: ../data/benchmark/Set14/HR
+    dataroot_lq: ../data/benchmark/Set14/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  val_3:
+    name: B100
+    type: PairedImageDataset
+    dataroot_gt: ../data/benchmark/B100/HR
+    dataroot_lq: ../data/benchmark/B100/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+  val_4:
+    name: Urban100
+    type: PairedImageDataset
+    dataroot_gt: ../data/benchmark/Urban100/HR
+    dataroot_lq: ../data/benchmark/Urban100/LR_bicubic/X4
+    filename_tmpl: '{}x4'
+    io_backend:
+      type: disk
+
+
+# network structures
+# Large Setting: 90C-6G-4B-2FFNExpansion
+network_g:
+  type: DLGSANet
+  upscale: 4
+  in_chans: 3
+  dim: 90
+  groups: 6
+  blocks: 4
+  buildblock_type: 'sparseedge'
+  window_size: 7
+  idynamic_num_heads: 6
+  idynamic_ffn_type: 'GDFN'
+  idynamic_ffn_expansion_factor: 2.
+  idynamic: true
+  restormer_num_heads: 6
+  restormer_ffn_type: 'GDFN'
+  restormer_ffn_expansion_factor: 2.
+  tlc_flag: true
+  tlc_kernel: 48    # [x2, x3, x4] -> [96, 72, 48]
+  activation: 'relu'
+  body_norm: false
+  img_range: 1.
+  upsampler: 'pixelshuffledirect'
+
+
+# path
+path:
+  pretrain_network_g: experiments/train_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4/models/net_g_latest.pth
+  strict_load_g: true
+  resume_state: ~
+
+# validation settings
+val:
+  save_img: true
+  suffix: ~  # add suffix to saved images, if None, use exp name
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: true
+    ssim:
+      type: calculate_ssim
+      crop_border: 4
+      test_y_channel: true
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 22144
