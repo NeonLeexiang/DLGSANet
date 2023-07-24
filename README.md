@@ -9,11 +9,66 @@
 [Jinhui Tang](https://imag-njust.net/jinhui-tang/)<sup>1</sup>,
 [Jiangxin Dong](https://imag-njust.net/jiangxin-dong/)<sup>1</sup> <br>
 
-<sup>1</sup>Nanjing University of Science and Technology
+<sup>1</sup>[IMAG Lab](https://imag-njust.net/), Nanjing University of Science and Technology
+
+> Abstract: We propose an effective lightweight dynamic local and global self-attention network (DLGSANet) to solve image super-resolution. Our method explores the properties of Transformers while having low computational costs. Motivated by the network designs of Transformers, we develop a simple yet effective multi-head dynamic local self-attention (MHDLSA) module to extract local features efficiently. In addition, we note that existing Transformers usually explore all similarities of the tokens between the queries and keys for the feature aggregation. However, not all the tokens from the queries are relevant to those in keys, using all the similarities does not effectively facilitate the high-resolution image reconstruction. To overcome this problem, we develop a sparse global self-attention (SparseGSA) module to select the most useful similarity values so that the most useful global features can be better utilized for the high-resolution image reconstruction. We develop a hybrid dynamic-Transformer block(HDTB) that integrates the MHDLSA and SparseGSA for both local and global feature exploration. To ease the network training, we formulate the HDTBs into a residual hybrid dynamic-Transformer group (RHDTG). By embedding the RHDTGs into an end-to-end trainable network, we show that our proposed method has fewer network parameters and lower computational costs while achieving competitive performance against state-of-the-art ones in terms of accuracy.
 
 ## Framework
 
 ![](./docs/media/dlgsanet_png.png)
+
+
+---
+## Contents
+
+The contents of this repository are as follows:
+
+1. [Dependencies](#Dependencies)
+2. [Train](#Train)
+3. [Test](#Test)
+
+### Dependencies
+
+> - Python
+> - Pytorch (1.11 or 1.13)
+> - basicsr
+> - cupy-cuda
+
+extra infos: 
+> - [BasicSR](https://github.com/XPixelGroup/BasicSR)
+> - [cupy](https://github.com/cupy/cupy)
+
+For more details of the dependencies, please refer to `requirements.txt`
+
+### Train
+
+```
+# For X2
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx2_scratch_img_size_48_lr5e_4.sh
+
+# For X3
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.sh
+
+# For X4
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.sh
+```
+
+### Test
+
+```
+# For X2
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_SISR_ClassicDIV2K_Large_90C6G4B_DLGSANet_SRx2_scratch_img_size_48_lr5e_4.sh
+
+# For X3
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_ClassicSR_Large_90C6G4B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.sh
+
+# For X4
+sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_ClassicSR_Large_90C6G4B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.sh
+
+```
+
+---
+
 
 ## Visual Results
 
@@ -23,15 +78,25 @@
 
 ![](./docs/media/img095_imgsli.png)
 
+
+---
+
+
 ## To Do
 
-Release training code
-
-Release testing code
-
 Release pre-trained models
+
+## Citation
+If this work is helpful for your research, please consider citing the following BibTeX entry.
+```
+ @article{li2023dlgsanet,
+      title={DLGSANet: Lightweight Dynamic Local and Global Self-Attention Networks for Image Super-Resolution}, 
+      author={Li, Xiang and Pan, Jinshan and Tang, Jinhui and Dong, Jiangxin},
+      journal={arXiv preprint arXiv:2301.02031},
+      year={2023},
+}
+```
 
 ## Contact
 
 This repo is currently maintained by Xiang Li ([@neonleexiang](https://github.com/NeonLeexiang)) and is for academic research use only. 
-
