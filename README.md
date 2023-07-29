@@ -69,6 +69,17 @@ sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_SISR_ClassicDIV2K_Large_90C6G4B_DLG
 
 ---
 
+## Results
+
+- **Pretrained models and visual results**
+
+| Degradation |                                                                                         Model Zoo                                                                                          |                                                                                         Visual Results                                                                                          | 
+| :----- |:------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| BI-Efficient SR |                                                                                           To-Do                                                                                            |                                                                                              To-Do                                                                                              |
+| BI-Classic SR |                                                                                           To-Do                                                                                            |                                                                                              To-Do                                                                                              |
+| BI-Classic SR (x4) | [Google Drive](https://drive.google.com/drive/folders/1kqjoO7IEi7QmaOSEH37xKjRA_LcmL2eU?usp=sharing) \ [Baidu Netdisk](https://pan.baidu.com/s/1PyArsdTVpQd8cK2UV65bxg?pwd=IMAG) `code:IMAG` | [Google Drive](https://drive.google.com/drive/folders/1dMiwuD4hyvz_E5R1Al848qQmIICAM3Os?usp=share_link) \ [Baidu Netdisk](https://pan.baidu.com/s/1G_3mUUxImKScjVpDuDQnfg?pwd=IMAG) `code:IMAG` |
+
+
 
 ## Visual Results
 
