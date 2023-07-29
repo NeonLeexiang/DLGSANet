@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfd89217-ee91-4528-bf5e-c30f7dc22f9e" name="Changes" comment="add todo list">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="dfd89217-ee91-4528-bf5e-c30f7dc22f9e" name="Changes" comment="added x4 pretrain models and visual results">
       <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -238,13 +237,21 @@
       <option name="project" value="LOCAL" />
       <updated>1690610300246</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="added x4 pretrain models and visual results">
+      <created>1690613534019</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1690613534019</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding README.md" />
     <MESSAGE value="initial comments" />
     <MESSAGE value="add todo list" />
-    <option name="LAST_COMMIT_MESSAGE" value="add todo list" />
+    <MESSAGE value="added x4 pretrain models and visual results" />
+    <option name="LAST_COMMIT_MESSAGE" value="added x4 pretrain models and visual results" />
   </component>
 </project>
