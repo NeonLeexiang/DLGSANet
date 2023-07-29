@@ -106,13 +106,13 @@ The foundation for the training process is [BasicSR](https://github.com/XPixelGr
 
 The following research forms the foundation for the MHDLSA implementation:
 
-On the Connection between Local Attention and Dynamic Depth-wise Convolution [paper](https://arxiv.org/abs/2106.04263) [github](https://github.com/Atten4Vis/DemystifyLocalViT)
+> _On the Connection between Local Attention and Dynamic Depth-wise Convolution_ [paper](https://arxiv.org/abs/2106.04263) [github](https://github.com/Atten4Vis/DemystifyLocalViT)
 
 And the following research forms the foundation for the SparseGSA implementation:
 
-Restormer: Efficient Transformer for High-Resolution Image Restoration [paper](https://arxiv.org/abs/2111.09881) [github](https://github.com/swz30/Restormer)
+> _Restormer: Efficient Transformer for High-Resolution Image Restoration_ [paper](https://arxiv.org/abs/2111.09881) [github](https://github.com/swz30/Restormer)
 
-Improving Image Restoration by Revisiting Global Information Aggregation [paper](https://arxiv.org/abs/2112.04491) [github](https://github.com/megvii-research/TLC)
+> _Improving Image Restoration by Revisiting Global Information Aggregation_ [paper](https://arxiv.org/abs/2112.04491) [github](https://github.com/megvii-research/TLC)
 
 
 ## Contact
