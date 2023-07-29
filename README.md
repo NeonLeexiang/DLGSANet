@@ -84,7 +84,10 @@ sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_ClassicSR_Large_90C6G4B_DLGSANet_SR
 
 ## To Do
 
-Release pre-trained models
+Release pre-trained models of regular models
+
+Release the visual results of BI super-resolution
+
 
 ## Citation
 If this work is helpful for your research, please consider citing the following BibTeX entry.
@@ -96,6 +99,21 @@ If this work is helpful for your research, please consider citing the following 
       year={2023},
 }
 ```
+
+## Acknowledgement
+
+The foundation for the training process is [BasicSR](https://github.com/XPixelGroup/BasicSR) , which profited from the outstanding contribution of [XPixelGroup](https://github.com/XPixelGroup) .
+
+The following research forms the foundation for the MHDLSA implementation:
+
+On the Connection between Local Attention and Dynamic Depth-wise Convolution [paper](https://arxiv.org/abs/2106.04263) [github](https://github.com/Atten4Vis/DemystifyLocalViT)
+
+And the following research forms the foundation for the SparseGSA implementation:
+
+Restormer: Efficient Transformer for High-Resolution Image Restoration [paper](https://arxiv.org/abs/2111.09881) [github](https://github.com/swz30/Restormer)
+
+Improving Image Restoration by Revisiting Global Information Aggregation [paper](https://arxiv.org/abs/2112.04491) [github](https://github.com/megvii-research/TLC)
+
 
 ## Contact
 
