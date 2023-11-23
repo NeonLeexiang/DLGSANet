@@ -4,14 +4,33 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="dfd89217-ee91-4528-bf5e-c30f7dc22f9e" name="Changes" comment="added x4 pretrain models and visual results">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="dfd89217-ee91-4528-bf5e-c30f7dc22f9e" name="Changes" comment="fixed `added x4 pretrain models and visual results`">
+      <change afterPath="$PROJECT_DIR$/demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Light_48C4G3B_DLGSANet_SRx2_scratch_img_size_48_lr5e_4.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Light_48C4G3B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Light_48C4G3B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Tiny_48C3G3B_DLGSANet_SRx2_scratch_img_size_48_lr5e_4.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Tiny_48C3G3B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/demo_sbatch_file/SISR_ClassicDIV2K/train_SISR_ClassicDIV2K_Tiny_48C3G3B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.sh" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/options/DLGSANet_SISR/train_SISR_ClassicDIV2K_Light_48C4G3B_DLGSANet_SRx2_scratch_img_size_48_lr5e_4.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/options/DLGSANet_SISR/train_SISR_ClassicDIV2K_Light_48C4G3B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/options/DLGSANet_SISR/train_SISR_ClassicDIV2K_Light_48C4G3B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/options/DLGSANet_SISR/train_SISR_ClassicDIV2K_Tiny_48C3G3B_DLGSANet_SRx2_scratch_img_size_48_lr5e_4.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/options/DLGSANet_SISR/train_SISR_ClassicDIV2K_Tiny_48C3G3B_DLGSANet_SRx4_scratch_img_size_48_lr5e_4.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/options/DLGSANet_SISR/train_SISR_ClassicDIV2K_Tiny_48C3G4B_DLGSANet_SRx3_scratch_img_size_48_lr5e_4.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2VKRagW5MN0jkW8dHoaMYktKVBl" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -20,6 +39,8 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.mappings": "true",
     "WebServerToolWindowPanel.toolwindow.highlight.symlinks": "true",
@@ -27,71 +48,22 @@
     "WebServerToolWindowPanel.toolwindow.show.permissions": "false",
     "WebServerToolWindowPanel.toolwindow.show.size": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "/Users/leexiangneon/PycharmProjects/DLGSANet4SR/experiments/pretrained_models",
-    "node.js.selected.package.tslint": "(autodetect)"
+    "last_opened_file_path": "/Users/leexiangneon/PycharmProjects/DLGSANet4SR/demo_sbatch_file/SISR_ClassicDIV2K",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/demo_sbatch_file/SISR_ClassicDIV2K" />
+      <recent name="$PROJECT_DIR$/options/DLGSANet_SISR" />
       <recent name="$PROJECT_DIR$/experiments/pretrained_models" />
     </key>
   </component>
   <component name="RunManager">
-    <configuration default="true" type="DjangoTestsConfigurationType">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="TARGET" value="" />
-      <option name="SETTINGS_FILE" value="" />
-      <option name="CUSTOM_SETTINGS" value="false" />
-      <option name="USE_OPTIONS" value="false" />
-      <option name="OPTIONS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PyBehaveRunConfigurationType" factoryName="Behave">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="ADDITIONAL_ARGS" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
     <configuration name="main" type="PythonConfigurationType" factoryName="Python" nameIsGenerated="true">
       <module name="DLGSANet" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -114,100 +86,8 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration default="true" type="Python.FlaskServer">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="launchJavascriptDebuger" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="Tox" factoryName="Tox">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Docutils task">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="docs" factoryName="Sphinx task">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="docutils_input_file" value="" />
-      <option name="docutils_output_file" value="" />
-      <option name="docutils_params" value="" />
-      <option name="docutils_task" value="" />
-      <option name="docutils_open_in_browser" value="false" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Autodetect">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="_new_additionalArguments" value="&quot;&quot;" />
-      <option name="_new_target" value="&quot;&quot;" />
-      <option name="_new_targetType" value="&quot;PATH&quot;" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="tests" factoryName="Doctests">
-      <module name="DLGSANet" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="" />
-      <option name="IS_MODULE_SDK" value="false" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="" />
-      <option name="CLASS_NAME" value="" />
-      <option name="METHOD_NAME" value="" />
-      <option name="FOLDER_NAME" value="" />
-      <option name="TEST_TYPE" value="TEST_SCRIPT" />
-      <option name="PATTERN" value="" />
-      <option name="USE_PATTERN" value="false" />
-      <method v="2" />
-    </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task id="LOCAL-00001" summary="adding README.md">
       <created>1690205436710</created>
@@ -244,14 +124,48 @@
       <option name="project" value="LOCAL" />
       <updated>1690613534019</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="fixed `added x4 pretrain models and visual results`">
+      <created>1690613686184</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1690613686184</updated>
+    </task>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="dfd89217-ee91-4528-bf5e-c30f7dc22f9e" name="Changes" comment="fixed `added x4 pretrain models and visual results`" />
+      <created>1694582857191</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1694582857191</updated>
+      <workItem from="1694582864137" duration="7000" />
+      <workItem from="1694585143205" duration="153000" />
+      <workItem from="1698731235914" duration="8000" />
+      <workItem from="1700115822542" duration="223000" />
+      <workItem from="1700701244696" duration="2482000" />
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding README.md" />
     <MESSAGE value="initial comments" />
     <MESSAGE value="add todo list" />
     <MESSAGE value="added x4 pretrain models and visual results" />
-    <option name="LAST_COMMIT_MESSAGE" value="added x4 pretrain models and visual results" />
+    <MESSAGE value="fixed `added x4 pretrain models and visual results`" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed `added x4 pretrain models and visual results`" />
   </component>
 </project>

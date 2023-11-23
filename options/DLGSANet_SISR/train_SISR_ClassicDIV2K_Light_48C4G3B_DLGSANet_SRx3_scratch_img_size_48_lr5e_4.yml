@@ -1,0 +1,122 @@
+# general settings
+name: SISR_ClassicDIV2K_Light_48C4G3B_DLGSANet_SR_x3_LR_5e_4_image_size_48
+# Large Setting: 48C-4G-3B-2FFNExpansion
+model_type: SRModel
+scale: 3
+num_gpu: auto
+manual_seed: 0
+
+# dataset and data loader settings
+datasets:
+  train:
+    name: DIV2K
+    type: PairedImageDataset
+    dataroot_gt: /data0/SISR_dataset/DIV2K/DIV2K_train_HR_sub
+    dataroot_lq: /data0/SISR_dataset/DIV2K/DIV2K_train_LR_bicubic/X3_sub
+    # meta_info_file: basicsr/data/meta_info/meta_info_DIV2K800sub_GT.txt
+    filename_tmpl: '{}'
+    io_backend:
+      type: disk
+
+    gt_size: 144
+    use_hflip: true
+    use_rot: true
+
+    # data loader
+    use_shuffle: true
+    num_worker_per_gpu: 6
+    batch_size_per_gpu: 8
+    dataset_enlarge_ratio: 1
+    prefetch_mode: ~
+
+  # --- validation
+  val_0:
+    name: DIV2K_Val_100
+    type: PairedImageDataset
+    dataroot_gt: ../data/DIV2K/DIV2K_valid_HR
+    dataroot_lq: ../data/DIV2K/DIV2K_valid_LR_bicubic/X3
+    filename_tmpl: '{}x3'
+    io_backend:
+      type: disk
+
+# network structures
+# Large Setting: 48C-4G-3B-2FFNExpansion
+network_g:
+  type: DLGSANet
+  upscale: 3
+  in_chans: 3
+  dim: 48
+  groups: 4
+  blocks: 3
+  buildblock_type: 'sparseedge'
+  window_size: 7
+  idynamic_num_heads: 6
+  idynamic_ffn_type: 'GDFN'
+  idynamic_ffn_expansion_factor: 2.
+  idynamic: true
+  restormer_num_heads: 6
+  restormer_ffn_type: 'GDFN'
+  restormer_ffn_expansion_factor: 2.
+  tlc_flag: true
+  tlc_kernel: 72    # using tlc during validation
+  activation: 'relu'
+  body_norm: false
+  img_range: 1.
+  upsampler: 'pixelshuffledirect'
+
+
+
+# path
+path:
+  pretrain_network_g: ~
+  strict_load_g: true
+  resume_state: ~
+
+# all the training settings are based on SwinIR except for learning rate
+# training settings
+train:
+  ema_decay: 0.999
+  optim_g:
+    type: Adam
+    lr: !!float 5e-4
+    weight_decay: 0
+    betas: [0.9, 0.99]
+
+  scheduler:
+    type: MultiStepLR
+    milestones: [250000, 400000, 450000, 475000]
+    gamma: 0.5
+
+  total_iter: 500000
+  warmup_iter: -1  # no warm up
+
+  # losses
+  pixel_opt:
+    type: L1Loss
+    loss_weight: 1.0
+    reduction: mean
+
+# validation settings
+val:
+  val_freq: !!float 1e4
+  save_img: false
+
+  metrics:
+    psnr: # metric name, can be arbitrary
+      type: calculate_psnr
+      crop_border: 4
+      test_y_channel: true
+
+# logging settings
+logger:
+  print_freq: 2000
+  save_checkpoint_freq: !!float 1e4
+  use_tb_logger: true
+  wandb:
+    project: DLGSANet4SR
+    resume_id: ~
+
+# dist training settings
+dist_params:
+  backend: nccl
+  port: 29500
