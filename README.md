@@ -73,11 +73,43 @@ sh ./demo_sbatch_file/SISR_ClassicDIV2K/test_SISR_ClassicDIV2K_Large_90C6G4B_DLG
 
 - **Pretrained models and visual results**
 
-| Degradation |                                                                                          Model Zoo                                                                                           |                                                                                         Visual Results                                                                                          | 
-| :----- |:--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
-| BI-Efficient SR |                                                                                            To-Do                                                                                             |                                                                                              To-Do                                                                                              |
-| BI-Classic SR |                                                                                            To-Do                                                                                             |                                                                                              To-Do                                                                                              |
-| BI-Classic SR (x4) | [Google Drive](https://drive.google.com/drive/folders/1kqjoO7IEi7QmaOSEH37xKjRA_LcmL2eU?usp=sharing) / [Baidu Netdisk](https://pan.baidu.com/s/1PyArsdTVpQd8cK2UV65bxg?pwd=IMAG) `code:IMAG` | [Google Drive](https://drive.google.com/drive/folders/1dMiwuD4hyvz_E5R1Al848qQmIICAM3Os?usp=share_link) / [Baidu Netdisk](https://pan.baidu.com/s/1G_3mUUxImKScjVpDuDQnfg?pwd=IMAG) `code:IMAG` |
+| Degradation |                                                                                                                                     Model Zoo                                                                                                                                      |                                                                                                                                   Visual Results                                                                                                                                    | 
+| :----- |:----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------:|
+| BI-Efficient SR |                                                                                      [Google Drive](https://drive.google.com/drive/folders/1jbh5hNP4AGhsMPabWG7yq1mIDa_FcriO?usp=drive_link)                                                                                       |                                                                                        [Google Drive](https://drive.google.com/file/d/1sseiCtqtrnsq2xJnODmrOtUzvYz0mFEU/view?usp=drive_link)                                                                                        |
+| BI-Classic SR |                                                                                                                                       To-Do                                                                                                                                        |                                                                                                                                        To-Do                                                                                                                                        |
+| BI-Classic SR (x4) |                                            [Google Drive](https://drive.google.com/drive/folders/1kqjoO7IEi7QmaOSEH37xKjRA_LcmL2eU?usp=sharing) / [Baidu Netdisk](https://pan.baidu.com/s/1PyArsdTVpQd8cK2UV65bxg?pwd=IMAG) `code:IMAG`                                            |                                           [Google Drive](https://drive.google.com/drive/folders/1dMiwuD4hyvz_E5R1Al848qQmIICAM3Os?usp=share_link) / [Baidu Netdisk](https://pan.baidu.com/s/1G_3mUUxImKScjVpDuDQnfg?pwd=IMAG) `code:IMAG`                                           |
+
+
+- **Lightweight models PSNR**
+
+Unfortunately, the lightweight models' pretrain models were lost. 
+Additionally, the github project has not been updated for a year due to personal reasons.
+Recently, I rebuilt the framework and used a single 3090GPU to retrain the lightweight models using the same training settings as the paper (16 batchsize).
+The re-trained model and those in the study have a slightly varied PSNR (within 0.05dB) due to differences in devices and versions of Pytorch/Cuda.
+New pre-train models and visual results will be added on Baidu Netdisk and Google Drive.
+We recommend either training on your own for research purposes or using the new data from re-trained lightweight models.
+
+`DLGSANet-Tiny`:
+
+| model-scale      |        Set5        |       Set14        |       BSDS100      |      Urban100      |      Manga109       | 
+|:-----------------|:------------------:|:------------------:|:------------------:|:------------------:|:-------------------:|
+| `Tiny-x2(paper)` |  `38.16 / 0.9611`  |  `33.92 / 0.9202`  |  `32.26 / 0.9007`  |  `32.82 / 0.9343`  |  `39.14 / 0.9777`   | 
+| `Tiny-x2`        | `38.1581 / 0.9615` | `33.8906 / 0.9200` | `32.2828 / 0.9017` | `32.8461 / 0.9343` | `39.1326 / 0.9780`  | 
+| `Tiny-x3(paper)` |  `34.63 / 0.9288`  |  `30.57 / 0.8459`  |  `29.21 / 0.8083`  |  `28.69 / 0.8630`  |  `34.10 / 0.9480`   | 
+| `Tiny-x3`        | `34.6197 / 0.9293` | `30.5370 / 0.8469` | `29.2335 / 0.8100` | `28.7829 / 0.8645` | `34.0463 / 0.9477`  | 
+| `Tiny-x4(paper)` |  `32.46 / 0.8984`  |  `28.79 / 0.7861`  |  `27.70 / 0.7408`  |  `26.55 / 0.8002`  |  `30.98 / 0.9137`   | 
+| `Tiny-x4`        | `32.4957 / 0.8992` | `28.7738 / 0.7862` | `27.7217 / 0.7426` | `26.5675 / 0.8006` | `30.9556 / 0.9142`  |
+
+`DLGSANet-Light`:
+
+| model-scale      |        Set5        |       Set14        |       BSDS100      |      Urban100      |      Manga109       | 
+|:-----------------|:------------------:|:------------------:|:------------------:|:------------------:|:-------------------:|
+| `Light-x2(paper)` |  `38.20 / 0.9612`  |  `33.89 / 0.9203`  |  `32.30 / 0.9012`  |  `32.94 / 0.9355`  |  `39.29 / 0.9780`  | 
+| `Light-x2`        | `38.1577 / 0.9615` | `34.0453 / 0.9216` | `32.3058 / 0.9020` | `32.9323 / 0.9354` | `39.1995 / 0.9780` | 
+| `Light-x3(paper)` |  `34.70 / 0.9295`  |  `30.58 / 0.8465`  |  `29.24 / 0.8089`  |  `28.83 / 0.8653`  |  `34.16 / 0.9483`  | 
+| `Light-x3`        | `34.6697 / 0.9298` | `30.5621 / 0.8466` | `29.2484 / 0.8101` | `28.8239 / 0.8655` | `34.1938 / 0.9483` | 
+| `Light-x4(paper)` |  `32.54 / 0.8993`  |  `28.84 / 0.7871`  |  `27.73 / 0.7415`  |  `26.66 / 0.8033`  |  `31.13 / 0.9161`  | 
+| `Light-x4`        | `32.5333 / 0.8998` | `28.6401 / 0.7864` | `27.7299 / 0.7434` | `26.6702 / 0.8036` | `31.0196 / 0.9154` |
 
 
 
